@@ -49,6 +49,7 @@ class fnstMysqlDriverAllList extends \MysqlDriver\fnstMysqlDriver{
             if($allListStr){
                 $arrWhere[] = $allListStr;
             }
+
             $arrWhere[] = static::DEL_STATUS_COL." =  ".static::DEL_STATUS_EXIST_VALUE;
             $strCondition = implode(" and ",$arrWhere);
             $sql = "select `{$scoreField}`,`{$valueField}` from {$table}

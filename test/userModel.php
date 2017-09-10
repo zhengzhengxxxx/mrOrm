@@ -2,14 +2,14 @@
 
 class userModel extends BaseModel
 {
-	//插入一条user记录
+	//鎻掑叆涓�鏉ser璁板綍
 	public function add($userName,$userAge,$addTime)
     {
         $cacheInput = [
             'cacheName'=>'userListCache',
             'param'=>$userAge
         ];
-        //插入db
+        //鎻掑叆db
         $attributes = [
 			'user_name'=>$userName,
 			'user_age'=>$userAge,
@@ -19,15 +19,29 @@ class userModel extends BaseModel
 			'dbName'=>'userDb',
             'attributes'=>$attributes
         ];
-		//插入db和listCache
+		//鎻掑叆db鍜宭istCache
         $insertUuid = $this->addAllList($cacheInput,$dbInput);
         if ($insertUuid) {
 			$return = $insertUuid;
-			//插入hashCache
+			//鎻掑叆hashCache
 			$this->getCache("userHashCache", $insertUuid)->add($attributes);
         } else {
             $return = false;
         }
         return $return;
     }
+	
+	//璇诲彇璁板綍
+	public function queryList($age){
+		$dbInputParams=[
+			'dbName'=>'userDb',
+        ];
+        $cacheInputParams=[
+            'cacheName'=>'userListCache',
+            'param'=>$age,
+            'suffix'=>[],
+        ];
+        $re = $this->queryAllList($cacheInputParams,$dbInputParams);
+		return $re['data'];
+	}
 }

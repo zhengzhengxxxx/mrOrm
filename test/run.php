@@ -1,5 +1,5 @@
 <?php
-//ÅäÖÃÎÄ¼ş£¬×Ô¼º¸ù¾İ»·¾³¶¨Òå
+//é…ç½®æ–‡ä»¶ï¼Œè‡ªå·±æ ¹æ®ç¯å¢ƒå®šä¹‰
 $dbConfig = [
 	'db1'=>['host'=>'127.0.0.1','port'=>'3306','dbname'=>'test','user'=>'root','pw'=>'']
 	];
@@ -14,32 +14,49 @@ $cacheConfig = [
 ];
 
 
-//½¨±ísql
+//å»ºè¡¨sql
 /*
 CREATE TABLE `mr_user` (
-`id`  int UNSIGNED NOT NULL AUTO_INCREMENT ,
-`uuid`  varchar(255) NOT NULL ,
-`user_name`  varchar(255) NOT NULL ,
-`user_age`  int NOT NULL ,
-`add_time`  int NOT NULL ,
-PRIMARY KEY (`id`)
-)
-;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_age` int(11) NOT NULL,
+  `add_time` int(11) NOT NULL,
+  `del_status` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 */
 
-//¼ÓÔØ¸÷ÖÖÎÄ¼ş
+//åŠ è½½å„ç§æ–‡ä»¶
 require("./load.php");
 
-//Ö´ĞĞ²åÈë²Ù×÷
-$userName = "niko";
-$userAge = "45";
-$addTime = time();
+
 
 $userModel = new userModel();
 $userModel->setDbConf($dbConfig);
 $userModel->setRedisConf($cacheConfig);
-$userModel->add($userName,$userAge,$addTime);
-
+//æŸ¥è¯¢åˆ—è¡¨
+$age = "45";
+$queryRe = $userModel->queryList($age);
+if($queryRe){
+	echo "åˆ—è¡¨ä¸­å­˜åœ¨çš„å…ƒç´ æ˜¯ï¼š<br/>";
+	foreach($queryRe as $v){
+		echo $v."<br/>";
+	}
+}else{
+	echo "åˆ—è¡¨ä¸­å°šæœªå­˜åœ¨å…ƒç´ <br/>";
+}
+echo "<br/>";
+//æ‰§è¡Œæ’å…¥æ“ä½œ
+$userName = "niko";
+$userAge = "45";
+$addTime = time();
+$insertRe = $userModel->add($userName,$userAge,$addTime);
+if($insertRe){
+	echo "æˆåŠŸæ’å…¥æ•°æ®ï¼Œuuid:{$insertRe}";
+}else{
+	echo "æ’å…¥æ•°æ®å¤±è´¥";
+}
 
 
 

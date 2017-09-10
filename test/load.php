@@ -1,16 +1,16 @@
 <?php
-//ÒýÈë¸÷ÖÖ°üµÄ²Ù×÷£¬ÕâÖ»ÊÇÊ¾Àý£¬¾ßÌåÏîÄ¿×Ô¼ºÅäÖÃ
+//å¼•å…¥å„ç§åŒ…çš„æ“ä½œï¼Œè¿™åªæ˜¯ç¤ºä¾‹ï¼Œå…·ä½“é¡¹ç›®è‡ªå·±é…ç½®
 define("MRORM_ROOT_DIR",__DIR__.'/../src');
 
-//ÒýÈëbaseModel
+//å¼•å…¥baseModel
 require(MRORM_ROOT_DIR.'/BaseModel.php');
-//ÒýÈëmysqlÇý¶¯
+//å¼•å…¥mysqlé©±åŠ¨
 require(MRORM_ROOT_DIR.'/MysqlDriver/fnstMysqlConnection.php');
 require(MRORM_ROOT_DIR.'/MysqlDriver/fnstMysqlDriver.php');
 require(MRORM_ROOT_DIR.'/MysqlDriver/fnstMysqlDriverAllList.php');
 require(MRORM_ROOT_DIR.'/MysqlDriver/fnstMysqlDriverIncrList.php');
 require(MRORM_ROOT_DIR.'/MysqlDriver/fnstMysqlSqlBuilder.php');
-//ÒýÈëredisÇý¶¯
+//å¼•å…¥redisé©±åŠ¨
 require(MRORM_ROOT_DIR.'/RedisDriver/FnstOperator.php');
 
 require(MRORM_ROOT_DIR.'/RedisDriver/FnstRedisKM/Base.php');
@@ -27,7 +27,7 @@ require(MRORM_ROOT_DIR.'/RedisDriver/FnstRedisRouter/Base.php');
 require(MRORM_ROOT_DIR.'/RedisDriver/FnstRedisRouter/Average.php');
 require(MRORM_ROOT_DIR.'/RedisDriver/FnstRedisRouter/Hash.php');
 
-//ÒýÈëdb,redisÊµÌåºÍmodel
+//å¼•å…¥db,rediså®žä½“å’Œmodel
 require("./userDb.php");
 require("./userHashCache.php");
 require("./userListCache.php");

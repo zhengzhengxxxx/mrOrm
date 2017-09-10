@@ -1,12 +1,12 @@
 <?php
 
 
-//对应用户列表的key
+//瀵瑰簲鐢ㄦ埛鍒楄〃鐨刱ey
 class userListCache extends \RedisDriver\FnstRedisKM\ZsetAllKey{
     protected static $keyNameTemplate = "user_list_age:{#}";
     protected static $configGroup = "redis1";
     protected static $expireTime = 86400;
     const COMMAND = "zRange";
-    const SCORE_FIELD = "addTime";
+    const SCORE_FIELD = "add_time";
     const VALUE_FIELD = "uuid";
 }

@@ -1,9 +1,11 @@
 <?php
 
-//ÓÃ»§¶ÔÓ¦µÄdb±í
-class UserDb extends \MysqlDriver\fnstMysqlDriver{
-    //Á¬½ÓÃû£¬×ÓÀà²»¿ÉÎª¿Õ
+//ç”¨æˆ·å¯¹åº”çš„dbè¡¨
+class UserDb extends \MysqlDriver\fnstMysqlDriverAllList{
+    //è¿žæŽ¥åï¼Œå­ç±»ä¸å¯ä¸ºç©º
     const CONNECTION_NAME = "db1";
-    //±íÃû
+    //è¡¨å
     const TABLE_NAME = "mr_user";
+	//åˆ é™¤å­—æ®µçŠ¶æ€ä½
+    const DEL_STATUS_COL = "del_status";
 }
