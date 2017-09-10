@@ -4,7 +4,7 @@
 
 现在做了这么一个框架，同步mysql与redis的操作，使用的时候只需要继承类，调用指定的接口，无论缓存列表还是详情，均由框架完成
 
-mr意思:mysql and redis
+mr意思 mysql and redis
 
 此框架作用：
 
