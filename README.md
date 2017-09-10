@@ -18,6 +18,8 @@ mr意思 mysql and redis
 
 5.使用多组redis时，内置平均分配算法（默认）和一致性哈希算法,也可以自己实现接口去完成自己特定的算法
 
+6.自定义key的最失效时间，动态递增，节约内存的使用
+
 **常用缓存类型：**
 
 1.字符串类型（一般用作计数器）
@@ -32,4 +34,4 @@ mr意思 mysql and redis
 
 示例在test/run.php,配置好redis和mysql即可运行
 
-效果是，向db中插入了一条user信息，user列表和user详情
+效果是，向db中插入了一条user信息，在redis中写入user列表和user详情
